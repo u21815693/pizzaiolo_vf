@@ -21,7 +21,6 @@ class Pizza extends Model
         
     ];
 
-
     /**
      * The commands that belong to the pizza.
      */
