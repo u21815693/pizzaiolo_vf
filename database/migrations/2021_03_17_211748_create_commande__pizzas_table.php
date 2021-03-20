@@ -13,7 +13,7 @@ class CreateCommandePizzasTable extends Migration
      */
     public function up()
     {
-        Schema::create('commande__pizzas', function (Blueprint $table) {
+        Schema::create('commande_pizza', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('commande_id');
             $table->unsignedBigInteger('pizza_id');
@@ -34,6 +34,6 @@ class CreateCommandePizzasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commande__pizzas');
+        Schema::dropIfExists('commande_pizza');
     }
 }
