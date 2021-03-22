@@ -112,6 +112,7 @@
 
             </div>
             <!-- Grid row -->
+            {!! $pizzas->links() !!}
         </form>
     </section>
 

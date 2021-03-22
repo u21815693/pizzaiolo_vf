@@ -4,9 +4,8 @@
 
         <div style="    text-align: center;
     margin-top: 10%;" class="starter-template">
-            <h1>Welcome</h1>
-            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text
-                and a mostly barebones HTML document.</p>
+            <h1>BONJOUR</h1>
+            <p class="lead">Bienvenue dans mon site de pizza.</p>
         </div>
 
     </main>

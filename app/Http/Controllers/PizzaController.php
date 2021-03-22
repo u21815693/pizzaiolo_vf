@@ -49,7 +49,6 @@ class PizzaController extends Controller
             'name' => 'required',
             'description' => 'required'
         ]);
-        dd($request);
         $url = null;
         if ($request->hasFile('image')) {
             $image = $request->file('image');

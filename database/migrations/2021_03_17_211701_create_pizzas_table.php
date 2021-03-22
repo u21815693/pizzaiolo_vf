@@ -18,6 +18,7 @@ class CreatePizzasTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->decimal('price');
+            $table->string('url');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -36,6 +36,6 @@ class Commande extends Model
     {
         return $this->belongsToMany(Pizza::class)
             ->select(DB::raw('sum(price * qte) as total'), 'commande_pizza.id as commande_pizza_id', 'pizzas.id', 'description', 'price', 'url', 'name', 'qte')
-            ->groupBy('commande_pizza_id','price', 'description', 'url', 'name', 'qte', 'id');
+            ->groupBy('commande_pizza_id','price','pizza_id', 'description', 'commande_id','url', 'name', 'qte', 'id');
     }
 }

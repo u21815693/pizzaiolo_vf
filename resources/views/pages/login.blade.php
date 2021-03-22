@@ -3,7 +3,7 @@
     <div class="login-box">
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Connectez-vous pour démarrer votre session</p>
                 <form method="POST" action="{{ url('login_user')  }}">
                     @csrf
                     <div class="input-group mb-3">
@@ -47,7 +47,7 @@
                     </div>
                 </form>
                 <p class="mb-0">
-                    <a href="{{'register_user'}}" class="text-center">Register</a>
+                    <a href="{{'register_user'}}" class="text-center">s'inscrire</a>
                 </p>
             </div>
             <!-- /.login-card-body -->

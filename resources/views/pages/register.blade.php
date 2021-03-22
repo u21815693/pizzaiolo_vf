@@ -2,7 +2,7 @@
 @section('content')
     <div class="register-box">
         <div class="card">
-            <div class="card-header">{{ __('Register') }}</div>
+            <div class="card-header">{{ __(s'inscrire) }}</div>
 
             <div class="card-body">
                 <form method="POST" action="{{ url('register_user') }}">
@@ -63,13 +63,13 @@
                     </div>
                     <div class="social-auth-links text-center mb-3">
                         <button type="submit"
-                                class="btn btn-primary btn-block">{{ __('Register') }}</button>
+                                class="btn btn-primary btn-block">{{ __('inscrire') }}</button>
                     </div>
                     <!-- /.col -->
                 </form>
                 <div class="social-auth-links text-center mb-3">
                     <p class="mb-0">
-                        <a href="{{'/'}}" class="text-center">Login</a>
+                        <a href="{{'/'}}" class="text-center">connexion</a>
                     </p>
                 </div>
             </div>

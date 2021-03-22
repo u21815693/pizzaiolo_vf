@@ -12,16 +12,14 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('user')->insert([
-            'first_name' => 'admin',
-            'last_name' => 'admin',
+        DB::table('users')->insert([
+            'name' => 'admin',
             'type' => 'admin',
             'login' => 'admin',
             'password' => Hash::make('admin'),
         ]);
-        DB::table('user')->insert([
-            'first_name' => 'pizzaiolo',
-            'last_name' => 'pizzaiolo',
+        DB::table('users')->insert([
+            'name' => 'pizzaiolo',
             'type' => 'pizzaiolo',
             'login' => 'pizzaiolo',
             'password' => Hash::make('pizzaiolo'),

@@ -52,9 +52,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('commande/create', ['as' => 'commande.create', 'uses' => 'CommandeController@create', 'middleware' => ['admin']]);
     Route::post('commande/create', ['as' => 'commande.store', 'uses' => 'CommandeController@store', 'middleware' => ['admin']]);
     Route::get('commande/show/{id}', ['as' => 'commande.show', 'uses' => 'CommandeController@show']);
-    Route::get('commande/edit/{id}', ['as' => 'commande.edit', 'uses' => 'CommandeController@edit', 'middleware' => ['admin']]);
-    Route::post('commande_update/{id}', ['as' => 'commande.update', 'uses' => 'CommandeController@update', 'middleware' => ['admin']]);
-    Route::get('commande_delete/{id}', ['as' => 'commande.destroy', 'uses' => 'CommandeController@destroy', 'middleware' => ['admin']]);
+    Route::get('commande/edit/{id}', ['as' => 'commande.edit', 'uses' => 'CommandeController@edit', 'middleware' => ['pizzaiolo']]);
+    Route::put('commande_update/{id}', ['as' => 'commande.update', 'uses' => 'CommandeController@update', 'middleware' => ['pizzaiolo']]);
+    Route::get('commande_delete/{id}', ['as' => 'commande.destroy', 'uses' => 'CommandeController@destroy', 'middleware' => ['pizzaiolo']]);
 
 
     Route::get('panier',  [ 'uses' => 'CommandeController@panier', 'middleware' => ['user']]);

@@ -189,13 +189,15 @@ class CommandeController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Commande $commande)
+    public function update(Request $request, $id )
     {
         $this->validate($request, [
             'status' => 'required'
         ]);
-
-        $commande->update($request->all());
+        $commande = Commande::find($id);
+        $commande->update([
+            'status' => $request['status']
+        ]);
 
         return redirect()->route('commande.index')
             ->with('success', 'Commande updated successfully');

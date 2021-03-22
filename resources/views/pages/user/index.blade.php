@@ -5,10 +5,10 @@
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
-                        <h2>Users</h2>
+                        <h2>Utilisateurs</h2>
                     </div>
                     <div style="text-align: end" class="pull-right">
-                        <a class="btn btn-success" href="{{ route('user.create') }}"> Create New user</a>
+                        <a class="btn btn-success" href="{{ route('user.create') }}"> Créer un nouveau utilisateurs</a>
                     </div>
                 </div>
             </div>
