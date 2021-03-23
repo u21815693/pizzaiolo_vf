@@ -21,8 +21,9 @@
 
             <table class="table table-bordered">
                 <tr>
-                    <th>No</th>
-                    <th>Name</th>
+                    <th>Num</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
                     <th>Login</th>
                     <th>Type</th>
                     <th width="280px">Action</th>
@@ -30,20 +31,20 @@
                 @foreach ($users as $user)
                     <tr>
                         <td>{{ ++$i }}</td>
-                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->nom }}</td>
+                        <td>{{ $user->prenom }}</td>
                         <td>{{ $user->login }}</td>
                         <td>{{ $user->type }}</td>
                         <td>
                             <form action="{{ route('user.destroy',$user->id) }}" method="POST">
 
-                                <a class="btn btn-info" href="{{ route('user.show',$user->id) }}">Show</a>
                                 @if($user->type != 'user')
-                                    <a class="btn btn-primary" href="{{ route('user.edit',$user->id) }}">Edit</a>
+                                    <a class="btn btn-primary" href="{{ route('user.edit',$user->id) }}">Modifier</a>
 
                                     @csrf
                                     @method('DELETE')
 
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger">Supprimer</button>
                                 @endif
                             </form>
                         </td>

@@ -22,11 +22,14 @@
                 Recette
             </a>
             <a class="navbar-brand" href="{{ url('/user') }}">
-                Users
+                Utilisateurs
             </a>
         @endif
         <a class="navbar-brand" href="{{ url('/commande') }}">
             Commandes
+        </a>
+        <a class="navbar-brand" href="{{ route('user.edit',\Illuminate\Support\Facades\Auth::user()->id) }}">
+            Profile
         </a>
         @if(\Illuminate\Support\Facades\Auth::user()->type == 'user')
             <a class="navbar-brand" href="{{ url('/panier') }}">
@@ -54,7 +57,7 @@
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
+                        {{ Auth::user()->nom }}
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

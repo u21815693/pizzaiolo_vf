@@ -13,13 +13,15 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'admin',
+            'nom' => 'admin',
+            'prenom' => 'admin',
             'type' => 'admin',
             'login' => 'admin',
             'password' => Hash::make('admin'),
         ]);
         DB::table('users')->insert([
-            'name' => 'pizzaiolo',
+            'nom' => 'pizzaiolo',
+            'prenom' => 'pizzaiolo',
             'type' => 'pizzaiolo',
             'login' => 'pizzaiolo',
             'password' => Hash::make('pizzaiolo'),

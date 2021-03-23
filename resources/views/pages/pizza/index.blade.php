@@ -8,7 +8,7 @@
                         <h2>Pizzaiolo</h2>
                     </div>
                     <div style="text-align: end" class="pull-right">
-                        <a class="btn btn-success" href="{{ route('pizza.create') }}"> Create New pizza</a>
+                        <a class="btn btn-success" href="{{ route('pizza.create') }}"> Creer une nouvelle pizza</a>
                     </div>
                 </div>
             </div>
@@ -21,8 +21,9 @@
 
             <table class="table table-bordered">
                 <tr>
-                    <th>No</th>
-                    <th>Name</th>
+                    <th>Num</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
                     <th>Description</th>
                     <th>Image</th>
                     <th width="280px">Action</th>
@@ -30,7 +31,8 @@
                 @foreach ($pizzas as $pizza)
                     <tr>
                         <td>{{ ++$i }}</td>
-                        <td>{{ $pizza->name }}</td>
+                        <td>{{ $pizza->nom }}</td>
+                        <td>{{ $pizza->prix }}</td>
                         <td>{{ $pizza->description }}</td>
                         <td><img src="{{ asset('/uploads/images/'.$pizza->url)  }}" style="width: 40px; height: 40px; border-radius: 50%;">
                         </td>
@@ -39,12 +41,12 @@
 
                               {{--  <a class="btn btn-info" href="{{ route('pizza.show',$pizza->id) }}">Show</a>--}}
 
-                                <a class="btn btn-primary" href="{{ route('pizza.edit',$pizza->id) }}">Edit</a>
+                                <a class="btn btn-primary" href="{{ route('pizza.edit',$pizza->id) }}">Modifier</a>
 
                                 @csrf
                                 @method('DELETE')
 
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
                             </form>
                         </td>
                     </tr>

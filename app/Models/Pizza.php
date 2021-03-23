@@ -14,9 +14,9 @@ class Pizza extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'nom',
         'description',
-        'price',
+        'prix',
         'deleted_at',
         
     ];

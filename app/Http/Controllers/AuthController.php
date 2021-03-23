@@ -44,14 +44,17 @@ class AuthController extends Controller
         $this->validate($request,
             [
                 'login' => 'required|string|unique:users',
-                'name' => 'required|string',
+                'nom' => 'required|string',
+                'prenom' => 'required|string',
+
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
 
             ]
         );
         $user = new User;
         $user->login = $request->input('login');
-        $user->name = $request->input('name');
+        $user->nom = $request->input('nom');
+        $user->prenom = $request->input('prenom');
         $user->password = Hash::make($request->input('password'));
         $user->type = 'user';
         $user->save();

@@ -2,15 +2,30 @@
 @section('content')
     <div class="register-box">
         <div class="card">
-            <div class="card-header">{{ __(s'inscrire) }}</div>
+            <div class="card-header">{{ __('Register') }}</div>
 
             <div class="card-body">
                 <form method="POST" action="{{ url('register_user') }}">
                     @csrf
                     <div class="input-group mb-3">
-                        <input placeholder="Full name" id="name" type="text"
-                               class="form-control @error('name') is-invalid @enderror"
-                               name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <input placeholder="Nom" id="name" type="text"
+                               class="form-control @error('nom') is-invalid @enderror"
+                               name="nom" value="{{ old('nom') }}" required autocomplete="nom" autofocus>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                        @error('nom')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="input-group mb-3">
+                        <input placeholder="Prenom" id="prenom" type="text"
+                                class="form-control @error('name') is-invalid @enderror"
+                                name="prenom" value="{{ old('prenom') }}" required autocomplete="prenom">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -18,8 +33,8 @@
                         </div>
                         @error('name')
                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
                     </div>
                     <div class="input-group mb-3">
@@ -63,7 +78,7 @@
                     </div>
                     <div class="social-auth-links text-center mb-3">
                         <button type="submit"
-                                class="btn btn-primary btn-block">{{ __('inscrire') }}</button>
+                                class="btn btn-primary btn-block">{{ __('Register') }}</button>
                     </div>
                     <!-- /.col -->
                 </form>

@@ -6,10 +6,10 @@
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
-                        <h2>Edit Pizza</h2>
+                        <h2>Modifier une pizza</h2>
                     </div>
                     <div style="text-align: end" class="pull-right">
-                        <a class="btn btn-primary" href="{{ route('pizza.index') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ route('pizza.index') }}"> Retour</a>
                     </div>
                 </div>
             </div>
@@ -31,16 +31,16 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Name:</strong>
-                            <input type="text" name="name" value="{{ $pizza->name }}" class="form-control"
-                                   placeholder="Name">
+                            <strong>Nom:</strong>
+                            <input type="text" name="nom" value="{{ $pizza->nom }}" class="form-control"
+                                   placeholder="Nom">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Price:</strong>
-                            <input type="decimal" name="name" value="{{ $pizza->price }}" class="form-control"
-                                   placeholder="Price">
+                            <strong>Prix:</strong>
+                            <input type="decimal" name="prix" value="{{ $pizza->prix }}" class="form-control"
+                                   placeholder="Prix">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -68,7 +68,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
                     </div>
                 </div>
             </form>

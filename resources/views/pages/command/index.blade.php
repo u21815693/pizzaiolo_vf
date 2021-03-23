@@ -8,7 +8,7 @@
                         <h2>Commandes</h2>
                     </div>
                     {{--<div style="text-align: end" class="pull-right">
-                        <a class="btn btn-success" href="{{ route('commande.create') }}"> Create New commande</a>
+                        <a class="btn btn-success" href="{{ route('commande.create') }}"> Creer une nouvelle commande</a>
                     </div>--}}
                 </div>
             </div>
@@ -30,11 +30,11 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-4">
                             <div class="form-group">
-                                <strong>Status:</strong>
+                                <strong>Statut:</strong>
                                 <select
                                     name="status" class="form-control">
                                     <option value="">
-                                        Choose status
+                                        Choisir un statut
                                     </option>
                                     @if($searchData['status'] == 'en traitement')
                                         <option value="traitées">
@@ -150,27 +150,27 @@
             @endif
             <table class="table table-bordered">
                 <tr>
-                    <th>No</th>
-                    <th>User</th>
+                    <th>Num</th>
+                    <th>Utilisateur</th>
                     <th>Status</th>
                     <th width="280px">Action</th>
                 </tr>
                 @foreach ($commande as $command)
                     <tr>
                         <td>{{ ++$i }}</td>
-                        <td>{{ $command->user->name }}</td>
+                        <td>{{ $command->user->nom }}</td>
                         <td>{{ $command->status }}</td>
                         <td>
 
-                            <a class="btn btn-info" href="{{ route('commande.show',$command->id) }}">Show</a>
+                            <a class="btn btn-info" href="{{ route('commande.show',$command->id) }}">Detail</a>
                             @if(\Illuminate\Support\Facades\Auth::user()->type == 'pizzaiolo')
-                                <a class="btn btn-primary" href="{{ route('commande.edit',$command->id) }}">Edit</a>
+                                <a class="btn btn-primary" href="{{ route('commande.edit',$command->id) }}">Modifier</a>
 
                                 <form action="{{ route('commande.destroy',$command->id) }}" method="POST">
 
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger">Supprimer</button>
                                 </form>
                             @endif
                         </td>

@@ -8,7 +8,7 @@
                         <h2>Recette du jour</h2>
                     </div>
                     <div style="text-align: end" class="pull-right">
-                        <a class="btn btn-primary" href="{{ route('commande.index') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ route('commande.index') }}"> Retour</a>
                     </div>
                 </div>
             </div>

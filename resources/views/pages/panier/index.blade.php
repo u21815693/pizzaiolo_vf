@@ -30,10 +30,9 @@
                                         <div>
                                             <div class="d-flex justify-content-between">
                                                 <div>
-                                                    <h5>{{$pizza->name}}</h5>
+                                                    <h5>{{$pizza->nom}}</h5>
                                                     <p class="mb-3 text-muted text-uppercase small"></p>
                                                     <p class="mb-2 text-muted text-uppercase small"></p>
-                                                    <p class="mb-3 text-muted text-uppercase small">Size: M</p>
                                                 </div>
                                                 <div>
                                                     <div style="display: flow-root;"
@@ -50,7 +49,7 @@
                                                                    type="number">
                                                             <input required hidden style="width: 35%;" class="price"
                                                                    min="0"
-                                                                   name="price" value="{{$pizza->price}}"
+                                                                   name="prix" value="{{$pizza->prix}}"
                                                                    type="text">
                                                             <input hidden style="width: 35%;" class="price" min="0"
                                                                    name="id_pizza[]" value="{{$pizza->id}}"
@@ -71,7 +70,7 @@
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <p class="mb-0">
-                                                    <span><strong>${{$pizza->price}}</strong></span>
+                                                    <span><strong>${{$pizza->prix}}</strong></span>
                                                 </p>
                                             </div>
                                         </div>
@@ -93,7 +92,7 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                     <div>
-                                        <strong>The total amount of</strong>
+                                        <strong>Total</strong>
                                     </div>
                                     <span><strong class="total">0</strong>€</span>
                                 </li>

@@ -89,7 +89,8 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'nom' => 'required',
+            'prenom' => 'required',
             'login' => ['required', 'string', 'max:255'],
             //'password' => ['string', 'min:8'],
             'type' => 'string',
@@ -102,7 +103,8 @@ class UserController extends Controller
             $request['password'] = $user->password;
         }
         $user->update([
-            'name' => $request['name'],
+            'nom' => $request['nom'],
+            'prenom' => $request['prenom'],
             'login' => $request['login'],
             'password' => $request['password'],
             'type' => $request['type'],
