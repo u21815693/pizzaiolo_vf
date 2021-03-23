@@ -6,10 +6,10 @@
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
-                        <h2>Add New User</h2>
+                        <h2>Ajouter un nouveau utilisateur </h2>
                     </div>
                     <div style="text-align: end" class="pull-right">
-                        <a class="btn btn-primary" href="{{ route('user.index') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ route('user.index') }}"> Retour</a>
                     </div>
                 </div>
             </div>
@@ -30,22 +30,29 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6">
                         <div class="form-group">
-                            <strong>Name:</strong>
-                            <input required type="text" name="name" class="form-control" placeholder="Enter Name">
+                            <strong>Nom:</strong>
+                            <input required type="text" name="nom" class="form-control" placeholder="Entrer le nom">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6">
                         <div class="form-group">
-                            <strong>Login:</strong>
+                            <strong>Prenom:</strong>
                             <input required type="text"
-                                   name="login" class="form-control" placeholder="Enter Login">
+                                   name="prenom" class="form-control" placeholder="Entrer le prenom">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6">
                         <div class="form-group">
-                            <strong>Password:</strong>
+                            <strong>Login:</strong>
+                            <input required type="text"
+                                   name="login" class="form-control" placeholder="Entrer Login">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <div class="form-group">
+                            <strong>Mot de passe:</strong>
                             <input required type="password" name="password" class="form-control"
                                    placeholder="********">
                         </div>
@@ -67,7 +74,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
                     </div>
                 </div>
             </form>

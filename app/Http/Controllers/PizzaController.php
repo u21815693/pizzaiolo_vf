@@ -126,7 +126,8 @@ class PizzaController extends Controller
         if ($exist_pizza) {
             $exist_pizza->delete();
         } else {
-            $exist_pizza->forceDelete();
+            $pizza = Pizza::find($id);
+            $pizza->forcedelete();
         }
         return redirect()->route('pizza.index')
             ->with('success', 'Pizza deleted successfully');

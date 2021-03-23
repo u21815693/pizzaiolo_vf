@@ -41,14 +41,16 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'nom' => 'required',
+            'prenom' => 'required',
             'login' => 'required',
             'password' => 'required',
             'type' => 'required',
         ]);
 
         $user = new User;
-        $user->name = $request->input('name');
+        $user->nom = $request->input('nom');
+        $user->prenom = $request->input('prenom');
         $user->login = $request->input('login');
         $user->password = Hash::make($request->input('password'));
         $user->type = $request->input('type');
