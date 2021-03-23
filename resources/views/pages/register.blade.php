@@ -53,22 +53,22 @@
                         @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <input placeholder="Password" id="password" type="password"
-                               class="form-control @error('password') is-invalid @enderror" name="password"
+                        <input placeholder="Mot de passe" id="password" type="password"
+                               class="form-control @error('mdp') is-invalid @enderror" name="mdp"
                                required autocomplete="new-password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
-                        @error('password')
+                        @error('mdp')
                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                         @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <input placeholder="Password confirm" id="password-confirm" type="password" class="form-control"
+                        <input placeholder="Confirmation mot de passe" id="password-confirm" type="password" class="form-control"
                                name="password_confirmation" required autocomplete="new-password">
                         <div class="input-group-append">
                             <div class="input-group-text">

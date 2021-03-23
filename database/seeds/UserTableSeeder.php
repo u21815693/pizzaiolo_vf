@@ -17,14 +17,14 @@ class UserTableSeeder extends Seeder
             'prenom' => 'admin',
             'type' => 'admin',
             'login' => 'admin',
-            'password' => Hash::make('admin'),
+            'mdp' => Hash::make('admin'),
         ]);
         DB::table('users')->insert([
             'nom' => 'pizzaiolo',
             'prenom' => 'pizzaiolo',
             'type' => 'pizzaiolo',
             'login' => 'pizzaiolo',
-            'password' => Hash::make('pizzaiolo'),
+            'mdp' => Hash::make('pizzaiolo'),
         ]);
     }
 }

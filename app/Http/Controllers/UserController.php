@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -44,7 +44,7 @@ class UserController extends Controller
             'nom' => 'required',
             'prenom' => 'required',
             'login' => 'required',
-            'password' => 'required',
+            'mdp' => 'required',
             'type' => 'required',
         ]);
 
@@ -52,7 +52,7 @@ class UserController extends Controller
         $user->nom = $request->input('nom');
         $user->prenom = $request->input('prenom');
         $user->login = $request->input('login');
-        $user->password = Hash::make($request->input('password'));
+        $user->mdp = Hash::make($request->input('mdp'));
         $user->type = $request->input('type');
         $user->save();
         return redirect('/user');
@@ -99,16 +99,16 @@ class UserController extends Controller
         ]);
         //dd($request);
         $user = User::find($id);
-        if ($request['password'] != null) {
-            $request['password'] = Hash::make($request['password']);
+        if ($request['mdp'] != null) {
+            $request['mdp'] = Hash::make($request['mdp']);
         } else {
-            $request['password'] = $user->password;
+            $request['mdp'] = $user->mdp;
         }
         $user->update([
             'nom' => $request['nom'],
             'prenom' => $request['prenom'],
             'login' => $request['login'],
-            'password' => $request['password'],
+            'mdp' => $request['mdp'],
             'type' => $request['type'],
         ]);
         if (Auth::user()->type == "admin")

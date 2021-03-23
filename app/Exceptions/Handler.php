@@ -22,7 +22,7 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontFlash = [
-        'password',
+        'mdp',
         'password_confirmation',
     ];
 

@@ -53,7 +53,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6">
                         <div class="form-group">
                             <strong>Mot de passe:</strong>
-                            <input required type="password" name="password" class="form-control"
+                            <input required type="password" name="mdp" class="form-control"
                                    placeholder="********">
                         </div>
                     </div>

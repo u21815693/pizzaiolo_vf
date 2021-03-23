@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Commande;
-use App\Commande_Pizza;
-use App\Pizza;
+use App\Models\Commande;
+use App\Models\Commande_Pizza;
+use App\Models\Pizza;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -76,7 +76,7 @@ class CommandeController extends Controller
         $sum = 0;
         foreach ($commande as $key => $command) {
             foreach ($command->pizzas as $keyPizza => $pizza) {
-                $sum = $sum + ($pizza->price * $pizza->qte);
+                $sum = $sum + ($pizza->prix * $pizza->qte);
             }
         }
         return view('pages.command.recipe', compact('sum', 'searchData'));

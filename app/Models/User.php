@@ -3,13 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -17,11 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nom',
-        'prenom',
-        'login',
-        'type',
-        'password',
+        'nom', 'prenom', 'login', 'mdp',
     ];
 
     /**
@@ -30,8 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'mdp', 'remember_token',
     ];
 
     /**
@@ -42,13 +36,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-
-    /**
-     * Get the commands for the user command.
-     */
-    public function commands()
-    {
-        return $this->hasMany(Commande::class);
-    }
 }

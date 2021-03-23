@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Commande;
-use App\User;
+use App\Models\Commande;
+use App\Models\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,15 +24,15 @@ class AuthController extends Controller
         $this->validate($request,
             [
                 'login' => 'required|string',
-                'password' => 'required'
+                'mdp' => 'required'
 
             ]
         );
-        if (Auth::attempt(['login' => $request['login'], 'password' => $request['password']])) {
-            if (Auth::attempt(['password' => $request['password']])) {
-                return back()->withInput();
-            } else {
-                return redirect()->intended('/home');
+        $user = User::where('login', $request['login'])->first();
+        if ($user) {
+            if (password_verify($request['mdp'], $user->mdp)) {
+                $this->guard()->login($user);
+                return redirect('/home');
             }
         } else {
             return back()->withInput();
@@ -47,15 +47,14 @@ class AuthController extends Controller
                 'nom' => 'required|string',
                 'prenom' => 'required|string',
 
-                'password' => ['required', 'string', 'min:8', 'confirmed'],
-
+                'mdp' => ['required', 'string']
             ]
         );
         $user = new User;
         $user->login = $request->input('login');
         $user->nom = $request->input('nom');
         $user->prenom = $request->input('prenom');
-        $user->password = Hash::make($request->input('password'));
+        $user->mdp = Hash::make($request->input('mdp'));
         $user->type = 'user';
         $user->save();
         $this->guard()->login($user);

@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Commande extends Model
 {
-    use HasFactory;
+
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +18,6 @@ class Commande extends Model
     protected $fillable = [
         'status',
         'user_id',
-        
     ];
 
 
@@ -34,6 +34,8 @@ class Commande extends Model
      */
     public function pizzas()
     {
-        return $this->belongsToMany(Pizza::class);
+        return $this->belongsToMany(Pizza::class)
+            ->select(DB::raw('sum(prix * qte) as total'), 'commande_pizza.id as commande_pizza_id', 'pizzas.id', 'description', 'prix', 'url', 'nom', 'qte')
+            ->groupBy('commande_pizza_id','prix','pizza_id', 'description', 'commande_id','url', 'nom', 'qte', 'id');
     }
 }
