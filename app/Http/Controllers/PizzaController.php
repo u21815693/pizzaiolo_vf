@@ -106,6 +106,7 @@ class PizzaController extends Controller
 
         $pizza->update(['nom' => $request['nom'],
         'prix' => $request['prix'],
+        'url' => $url,
         'description' => $request['description']]);
 
         return redirect()->route('pizza.index')
