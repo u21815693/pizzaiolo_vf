@@ -21,7 +21,7 @@ class PizzaController extends Controller
      */
     public function index()
     {
-        $pizzas = Pizza::orderBy('created_at', 'desc')->paginate(10);
+        $pizzas = Pizza::orderBy('created_at', 'desc')->paginate(5);
         return view('pages.pizza.index', compact('pizzas'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

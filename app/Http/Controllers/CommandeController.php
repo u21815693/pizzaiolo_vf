@@ -22,7 +22,7 @@ class CommandeController extends Controller
         $user = Auth::user();
         if ($user->type == 'pizzaiolo') {
             $commande = Commande::orderBy('created_at', 'desc')->with('user')
-                ->where('status', '!=', 'traitées')->paginate(10);
+                ->where('status', '!=', 'traitées')->paginate(5);
             return view('pages.command.index', compact('commande'))
                 ->with('i', (request()->input('page', 1) - 1) * 5);
         }
@@ -31,7 +31,7 @@ class CommandeController extends Controller
                 ->with('user')
                 //->whereIn('status', ['envoyé', 'en traitement', 'prête'])
                 ->where('user_id', Auth::user()->id)
-                ->paginate(10);
+                ->paginate(5);
             return view('pages.command.index', compact('commande'))
                 ->with('i', (request()->input('page', 1) - 1) * 5);
         } else {
@@ -39,7 +39,7 @@ class CommandeController extends Controller
                 'date' => \Carbon\Carbon::now()->format('20y-m-d'),
                 'status' => ''
             ];
-            $commande = Commande::orderBy('created_at', 'desc')->with('user')->paginate(10);
+            $commande = Commande::orderBy('created_at', 'desc')->with('user')->paginate(5);
             return view('pages.command.index', compact('commande', 'searchData'))
                 ->with('i', (request()->input('page', 1) - 1) * 5);
         }
@@ -59,7 +59,7 @@ class CommandeController extends Controller
         if ($date != null) $commande = $commande->where('created_at', '<=', $date);
         if ($searchData['status'] != null) $commande = $commande->where('status', '=', $searchData['status']);
         // Return the search view with the resluts compacted
-        $commande = $commande->paginate(10);
+        $commande = $commande->paginate(5);
         return view('pages.command.index', compact('commande', 'searchData'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -103,7 +103,7 @@ class CommandeController extends Controller
 
     public function panier()
     {
-        $pizzas = Pizza::orderBy('created_at', 'desc')->paginate(10);
+        $pizzas = Pizza::orderBy('created_at', 'desc')->paginate(5);
         return view('pages.panier.index', compact('pizzas'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
