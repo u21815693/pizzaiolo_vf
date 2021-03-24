@@ -41,13 +41,16 @@
                                 <th width="280px">Action</th>
                             @endif
                         </tr>
+                        <?php $totalcommande = 0; ?>
                         @foreach ($commande->pizzas as $pizza)
+                            <?php $totalcommande = $totalcommande + $pizza->total; ?>
                             <tr>
                                 <td>{{ $pizza->nom }}</td>
                                 <td>{{ $pizza->description }}</td>
                                 <td>{{ $pizza->prix }}</td>
                                 <td>{{ $pizza->qte }}</td>
                                 <td>{{ $pizza->total }}</td>
+                                
                                 @if(\Illuminate\Support\Facades\Auth::user()->type == 'user')
                                     <td>
                                         <form action="{{ url('delete_panier',$pizza->commande_pizza_id) }}"
@@ -61,6 +64,14 @@
                                 @endif
                             </tr>
                         @endforeach
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="form-group">
+                                <strong>
+                                    Prix total de la commande : {{$totalcommande}} 
+                                </strong>
+                            </div>
+                        </div>
+                        
                     </table>
                 </div>
             </div>

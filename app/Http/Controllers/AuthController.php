@@ -29,10 +29,13 @@ class AuthController extends Controller
             ]
         );
         $user = User::where('login', $request['login'])->first();
+        $user = User::where('login', $request['login'])->first();
         if ($user) {
             if (password_verify($request['mdp'], $user->mdp)) {
                 $this->guard()->login($user);
                 return redirect('/home');
+            } else {
+                return back()->withInput();
             }
         } else {
             return back()->withInput();

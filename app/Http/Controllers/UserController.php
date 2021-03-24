@@ -100,6 +100,7 @@ class UserController extends Controller
         //dd($request);
         $user = User::find($id);
         if ($request['mdp'] != null) {
+           
             $request['mdp'] = Hash::make($request['mdp']);
         } else {
             $request['mdp'] = $user->mdp;

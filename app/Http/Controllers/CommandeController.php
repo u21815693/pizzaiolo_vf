@@ -43,6 +43,7 @@ class CommandeController extends Controller
             return view('pages.command.index', compact('commande', 'searchData'))
                 ->with('i', (request()->input('page', 1) - 1) * 5);
         }
+        
     }
 
     public function search(Request $request)

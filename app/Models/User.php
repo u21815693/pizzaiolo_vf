@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    /**
+     * Get the commands for the user command.
+     */
+    public function commands()
+    {
+        return $this->hasMany(Commande::class);
+    }
 }

@@ -158,7 +158,7 @@
                 @foreach ($commande as $command)
                     <tr>
                         <td>{{ ++$i }}</td>
-                        <td>{{ $command->user->nom }}</td>
+                        <td>{{ ($command->user["nom"]) }}</td>
                         <td>{{ $command->status }}</td>
                         <td>
 
